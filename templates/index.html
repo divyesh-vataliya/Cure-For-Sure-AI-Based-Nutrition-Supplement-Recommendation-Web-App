@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Cure for Sure{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Welcome to Cure for Sure</h1>
+        <p class="lead">Your personalized nutrition and supplement recommendations</p>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary"><i class="fas fa-apple-alt me-2"></i>Nutrition in Your Body</h2>
+                <p class="card-text">Understanding how nutrition affects your body is the first step to better health. Our bodies require a balanced intake of:</p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Macronutrients (proteins, carbohydrates, fats)</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Micronutrients (vitamins and minerals)</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Water and other essential compounds</li>
+                </ul>
+                <p class="card-text">Each nutrient plays a vital role in maintaining your health and well-being.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary"><i class="fas fa-chart-line me-2"></i>Why Nutrition Matters</h2>
+                <p class="card-text">Proper nutrition is essential for:</p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item"><i class="fas fa-heart text-danger me-2"></i>Heart health and cardiovascular function</li>
+                    <li class="list-group-item"><i class="fas fa-brain text-info me-2"></i>Brain function and cognitive performance</li>
+                    <li class="list-group-item"><i class="fas fa-bone text-warning me-2"></i>Bone strength and muscle maintenance</li>
+                    <li class="list-group-item"><i class="fas fa-shield-virus text-success me-2"></i>Immune system function</li>
+                    <li class="list-group-item"><i class="fas fa-bolt text-warning me-2"></i>Energy production and metabolism</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary text-center mb-4"><i class="fas fa-star me-2"></i>How Cure for Sure Can Help</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <i class="fas fa-user-md fa-3x text-primary mb-3"></i>
+                            <h4>Personalized Recommendations</h4>
+                            <p>Get nutrition advice tailored to your specific needs based on your age, height, weight, activity level, and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <i class="fas fa-pills fa-3x text-primary mb-3"></i>
+                            <h4>Supplement Guidance</h4>
+                            <p>Learn which supplements might benefit you and discover natural food sources for essential nutrients.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="text-center">
+                            <i class="fas fa-book-medical fa-3x text-primary mb-3"></i>
+                            <h4>Educational Resources</h4>
+                            <p>Access comprehensive information about nutrition, supplements, and healthy eating habits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary mb-4">Ready to Start Your Journey?</h2>
+                <p class="lead mb-4">Create an account to get your personalized nutrition and supplement recommendations.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Register Now</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

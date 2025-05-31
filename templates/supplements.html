@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Supplements - Cure for Sure{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 text-center mb-4">
+        <h1 class="display-5 fw-bold text-primary">Supplement Recommendations</h1>
+        <p class="lead">Discover natural food sources and supplement options for your nutritional needs</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Important:</strong> Always consult with a healthcare provider before starting any supplement regimen. The information provided is for educational purposes only.
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    {% for supplement, info in supplement_data.items() %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">{{ supplement }}</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="text-primary mb-3"><i class="fas fa-check-circle me-2"></i>Benefits</h4>
+                <ul class="list-group list-group-flush mb-4">
+                    {% for benefit in info.benefits %}
+                    <li class="list-group-item"><i class="fas fa-star text-warning me-2"></i>{{ benefit }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <h4 class="text-primary mb-3"><i class="fas fa-apple-alt me-2"></i>Natural Food Sources</h4>
+                <ul class="list-group list-group-flush">
+                    {% for source in info.natural_sources %}
+                    <li class="list-group-item"><i class="fas fa-leaf text-success me-2"></i>{{ source }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="card-footer bg-light">
+                <a href="#" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#supplementModal{{ loop.index }}">
+                    <i class="fas fa-info-circle me-2"></i>Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for each supplement -->
+    <div class="modal fade" id="supplementModal{{ loop.index }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">{{ supplement }}</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="text-primary"><i class="fas fa-check-circle me-2"></i>Benefits</h5>
+                    <ul class="list-group list-group-flush mb-3">
+                        {% for benefit in info.benefits %}
+                        <li class="list-group-item"><i class="fas fa-star text-warning me-2"></i>{{ benefit }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <h5 class="text-primary"><i class="fas fa-apple-alt me-2"></i>Natural Food Sources</h5>
+                    <ul class="list-group list-group-flush mb-3">
+                        {% for source in info.natural_sources %}
+                        <li class="list-group-item"><i class="fas fa-leaf text-success me-2"></i>{{ source }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Note:</strong> The best way to get nutrients is through a balanced diet. Supplements should only be used when dietary intake is insufficient.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-primary mb-4"><i class="fas fa-lightbulb me-2"></i>Tips for Choosing Supplements</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="text-primary"><i class="fas fa-check me-2"></i>Do's</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Consult with a healthcare provider</li>
+                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Choose reputable brands</li>
+                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Read labels carefully</li>
+                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Start with food first</li>
+                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Store supplements properly</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-primary"><i class="fas fa-times me-2"></i>Don'ts</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-times-circle text-danger me-2"></i>Take more than recommended</li>
+                            <li class="list-group-item"><i class="fas fa-times-circle text-danger me-2"></i>Ignore expiration dates</li>
+                            <li class="list-group-item"><i class="fas fa-times-circle text-danger me-2"></i>Mix supplements without guidance</li>
+                            <li class="list-group-item"><i class="fas fa-times-circle text-danger me-2"></i>Replace meals with supplements</li>
+                            <li class="list-group-item"><i class="fas fa-times-circle text-danger me-2"></i>Buy from unreliable sources</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
